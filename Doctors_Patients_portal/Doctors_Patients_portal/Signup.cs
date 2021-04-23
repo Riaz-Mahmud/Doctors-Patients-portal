@@ -226,13 +226,11 @@ namespace Doctors_Patients_portal
                             db.Execute(st);
                         }
 
-                        //doctor's portal
-                        st = "select * from Doctor where User_name='" + username + "' and Password='" + pass + "';";
-                        DataTable dt = db.Data(st);
-                        DHome.dd = dt;
-                        DoctorsPortal p = new DoctorsPortal();
+                       
+                        MessageBox.Show("Account created! wait for admin approve.");
+                        LoginForm lg = new LoginForm();
                         this.Hide();
-                        p.Show();
+                        lg.Show();
 
                     }
                 }
@@ -253,6 +251,7 @@ namespace Doctors_Patients_portal
                         db.Execute(st);
                         if(radioButtonpatient.Checked)
                         {
+
                             st = "select * from Patient where User_name='" + username + "' and Password='" + pass + "';";
                             DataTable dt = db.Data(st);
                             PHome.ds = dt;
@@ -262,9 +261,11 @@ namespace Doctors_Patients_portal
                         }
                         else
                         {
-                            admin a = new admin();
+                           
+                            MessageBox.Show("Account created! wait for admin approve.");
+                            LoginForm lg = new LoginForm();
                             this.Hide();
-                            a.Show();
+                            lg.Show();
                         }
 
                     }
